@@ -63,7 +63,7 @@
           <% if (theme.bottomtools.category) { %>
             <span style="padding-right: 1px;">Category</span> · &nbsp;
               <% site.categories.each(function(cat) { %>
-                <a style="color:#95A5A6;" href="<%= cat.permalink %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
+                <a style="color:#95A5A6;" href="<%= url_for(cat.path) %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
               <% }) %>
             <br>
           <% } %>
@@ -72,7 +72,7 @@
           <% if (theme.bottomtools.tag) { %>
             <span style="padding-right: 1px;">Tag</span> · &nbsp;
               <% site.tags.each(function(tag) { %>
-                <a style="color:#95A5A6;" href="<%= tag.permalink %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
+                <a style="color:#95A5A6;" href="<%= url_for(tag.path) %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
               <% }) %>
             <br>
           <% } %>

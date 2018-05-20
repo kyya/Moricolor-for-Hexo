@@ -8,15 +8,15 @@
               <a id="tor_show" href="javascript:void(0)" class="fui-list-bulleted"></a>
               <a id="comment_go" href="#comments" class="fui-bubble"></a>
               <a style="font-size: 30px;margin-left: 1px;">·</a>
-              <a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>" target="_blank" rel="nofollow" data-placement="bottom" data-toggle="tooltip" title="Twitter" class="fui-twitter"></a>
+              <a href="https://twitter.com/intent/tweet?url=<%= url_for(page.path) %>" target="_blank" rel="nofollow" data-placement="bottom" data-toggle="tooltip" title="Twitter" class="fui-twitter"></a>
           </div>
           <div class="post-info">
             <% page.categories.each(function(cat) { %>
-              <a href="<%= cat.permalink %>"><%= cat.name %></a>
+              <a href="<%= url_for(cat.path) %>"><%= cat.name %></a>
             <% }) %>
             <span class="post-info-tag">
               <% page.tags.each(function(tag) { %>
-                <a href="<%= tag.permalink %>"><%= tag.name %></a>
+                <a href="<%= url_for(tag.path) %>"><%= tag.name %></a>
               <% }) %>
             </span>
             <a><%- time_tag(page.date) %></a>
