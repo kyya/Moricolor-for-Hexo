@@ -1,0 +1,80 @@
+<footer id="footer" class="container" style="background:rgba(255, 255, 255, 0);display:none;">
+  <hr>
+  <div style="text-align:center;padding-bottom:9px;">
+    <p>&copy; <%= date(new Date(), 'YYYY') %> <a href="<%= config.url %>"><%= config.title %></a>.
+    Using <a target="_blank" href="https://hexo.io/">Hexo</a> & <a target="_blank" href="https://yumoe.com">Moricolor</a>
+    / <a href="/atom.xml">RSS</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Hitokoto -->
+<% if (is_home() && theme.bottomtools.hitokoto) { %>
+  <script>
+    (function(){
+      fetch('https://api.lwl12.com/hitokoto/main/get')
+        .then(res=>res.text())
+        .then(hitokoto=>{
+          console.log(hitokoto)
+          document.querySelector('#hitokoto').innerHTML = `Hitokoto&nbsp; · &nbsp;&nbsp;${hitokoto}`
+        })
+    })()
+  </script>
+<% } %>
+
+<!-- Load other scripts -->
+<% if (theme.scripts !== undefined && theme.scripts.length > 0) { %>
+  <!-- scripts list from theme config.yml -->
+  <% theme.scripts.forEach(function(url) { %>
+    <script src="<%=url%>"></script>
+  <% }); %>
+<% } %>
+<script src="/js/text-autospace.min.js"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $("#main-index").fadeIn(800);
+    $("#main-archive").fadeIn(800);
+    $("#main-tag").fadeIn(800);
+    $("#main-post").fadeIn(500);
+    $("#postnav").fadeIn(800);
+    $("#main-page").fadeIn(500);
+    $("#pagenav").fadeIn(800);
+    $("#bottomtools").fadeIn(1200);
+    $("#comments").fadeIn(1000);
+
+    $("#footer").css('display','block'); 
+   
+  });
+  $("#comment_go").click(function(){
+    $("#comments").fadeIn(1000);
+  });
+
+  $('[data-toggle=tooltip]').tooltip();
+  
+  $("#outcomment").click(function(){
+    $("#comments").fadeIn(1000);
+  });
+</script>
+
+<% if(is_post()) { %>
+<script>
+  // 锚点平滑滚动
+  $('a[href*=#],area[href*=#]').click(function() {
+      $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'); //Opera BUG fixed
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname && location.search == this.search) {
+          var $target = $(this.hash);
+          $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+          if ($target.length) {
+              var targetOffset = $target.offset().top;
+              $('html,body').animate({
+                  scrollTop: targetOffset
+              },
+              1000);
+              return false;
+          }
+      }
+  });
+</script>
+<% } %>

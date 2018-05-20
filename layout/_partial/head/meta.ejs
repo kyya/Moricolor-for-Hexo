@@ -1,0 +1,30 @@
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="theme-color" content="#16a085">
+<!-- Blue #448AFF -->
+<!-- Title -->
+<%
+    var title = page.title;
+    if (is_archive()) {
+        title = __('Archive');
+        if (is_month()) {
+            title += ': ' + page.year + '/' + page.month;
+        }
+        else if (is_year()) {
+            title += ': ' + page.year;
+        }
+    }
+    else if (is_category()) {
+        title = __('Category') + ': ' + page.category;
+    }
+    else if (is_tag()) {
+        title = __('Tag') + ': ' + page.tag;
+    }
+%>
+<title><% if (title) { %><%= title + ' | ' %><% } %><%= config.title %></title>
+
+<!-- Favicons -->
+<link rel="icon shortcut" type="image/ico" href="<%= url_for(theme.head.favicon) %>">
+<link rel="icon" href="<%= url_for(theme.head.high_res_favicon) %>">
+

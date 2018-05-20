@@ -1,0 +1,22 @@
+<div id="main" class="container">
+  <div id="main-tag" role="main" style="display: none;">
+    <h4>& <%= page.tag.toUpperCase() %></h4>
+    <div class="tag-item">
+      <article>
+        <% page.posts.each(function(article) { %>
+          <div class="arc-t">
+            <div class="arc-tile">
+              <small>
+                <a href="<%= article.permalink %>" target="_blank">
+                  <%= article.title %>
+                </a>
+              </small>
+              <br>
+              <span class="arc-date"><%= date(article.date) %></span>
+            </div>
+          </div>
+        <% }) %>
+      </article>
+    </div>
+  </div>
+</div>

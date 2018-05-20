@@ -1,0 +1,36 @@
+# html lang
+language: zh
+
+head:
+  favicon: /img/plant.png
+  high_res_favicon: /img/plant.png
+
+# main menu navigation
+menu:
+  Home: /
+  About: /about
+  Contact: /contact
+  Archives: /archives
+
+# Miscelaneous
+favicon: /favicon.ico
+
+# scripts loaded in the end of the body
+scripts:
+- /js/vendor/jquery.min.js
+- /js/vendor/bootstrap.js
+- /js/flat-ui.min.js
+
+bottomtools:
+  hitokoto: true
+  category: false
+  tag: true
+
+comment:
+  use: disqus
+  shortname: <your disqus shortname>
+
+github: <your github>
+
+footer:
+  copyright_since: 2017

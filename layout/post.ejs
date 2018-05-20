@@ -1,0 +1,102 @@
+<div id="main" class="container">
+  <div id="main-post" style="display: none;">
+    <article id="post" class="post" style="padding-top: 20px;">
+        <h2 itemprop="name headline" style="font-weight: normal;"><%=page.title%></h2>
+        <div class="text-right">
+          <div class="text-bar">
+              <a href="/" class="fui-home"></a>
+              <a id="tor_show" href="javascript:void(0)" class="fui-list-bulleted"></a>
+              <a id="comment_go" href="#comments" class="fui-bubble"></a>
+              <a style="font-size: 30px;margin-left: 1px;">·</a>
+              <a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>" target="_blank" rel="nofollow" data-placement="bottom" data-toggle="tooltip" title="Twitter" class="fui-twitter"></a>
+          </div>
+          <div class="post-info">
+            <% page.categories.each(function(cat) { %>
+              <a href="<%= cat.permalink %>"><%= cat.name %></a>
+            <% }) %>
+            <span class="post-info-tag">
+              <% page.tags.each(function(tag) { %>
+                <a href="<%= tag.permalink %>"><%= tag.name %></a>
+              <% }) %>
+            </span>
+            <a><%- time_tag(page.date) %></a>
+          </div>
+        </div>
+        
+        <div class="post-content" itemprop="articleBody">
+            <%- page.content %>
+        </div>
+        <div class="post-copyright">
+          <div class="alert" role="alert">
+            本文作者：<a href="<%= theme.github %>" target="_blank"><%= config.author %></a><br>
+            本文采用 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow">知识共享署名 4.0</a> 协议进行许可。<br>
+            可自由转载、引用，但需署名作者且注明文章出处。
+          </div>
+        </div>
+
+    </article>
+
+    <center>
+      <div id="postnav" style="display: none;">
+      <ul class="pager">  
+          <li class="previous">
+              <a href="/">
+                  <span class="fui-home"></span>
+              </a>
+          </li>
+          <li class="next" id="outcomment">
+              <a href="javascript:void(0)">
+                  <span class="fui-chat"></span>
+              </a>
+          </li>
+          
+          <li class="previous">
+              <% if (page.prev) { %>
+                <a href="<%- url_for(page.prev.path) %>"><%= page.prev.title %></a>
+              <% } else { %>
+                <a href="#">没有了</a>
+              <% } %>
+          </li>
+          
+          <li class="next">
+            <% if (page.next) { %>
+              <a href="<%- url_for(page.next.path) %>"><%= page.next.title %></a>
+            <% } else { %>
+              <a href="#">没有了</a>
+            <% } %>
+          </li>
+          
+      </ul>
+      </div>
+    </center>
+    
+    <div id="comments" style="display: none">
+      <div id="disqus_thread"></div>
+    </div>
+  
+  </div>
+</div>
+<!-- Zoom.js 用于图片缩放 -->
+<script src="/js/zoom-js/js/zoom.js"></script>
+
+<script>
+  (function(){
+    document.querySelectorAll('.post-content p > img').forEach(e=>e.setAttribute('data-action', 'zoom'))
+  })()
+</script>
+<!-- Disqus 用于评论系统 -->
+<% if (theme.comment.use == 'disqus') { %>
+  <script type="text/javascript">
+    var disqus_config = function () {
+      this.page.url = '<%= page.permalink %>';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = '<%= page.permalink %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    }
+    document.querySelector('#outcomment').onclick = function() {
+      var d = document;
+      var s = d.createElement('script');
+      s.src = '//<%= theme.comment.shortname %>.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', + new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  </script>
+<% } %>

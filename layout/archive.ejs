@@ -1,0 +1,51 @@
+<div id="main" class="container">
+  <div id="main-page" role="main" style="display: none;">
+      <article>
+        <!-- 标签 -->
+        <h5 style="color:#34495e">Tags</h5>
+        <div class="post-tags">
+          <ul class="tags-list">
+          <% if (site.tags) { %>
+            <% site.tags.each(function(tag) { %>
+              <a href="<%= url_for(tag.path) %>" rel="tag"><%= tag.name.toUpperCase() %></a>
+            <% }) %>
+          <% } else {%>
+            <h6>╮(๑•́ ₃•̀๑)╭什么也没有呢</h6>
+          <% } %>
+          </ul>
+        </div>
+        <!-- 文章归档 -->
+        <div clss="post-archive" itemprop="articleBody">
+          <div id="archives">
+            <% var since = theme.footer.copyright_since %>
+            <% var years = new Set() %>
+            <% site.posts.map(post=>years.add(post.date.year())) %>
+
+            <% years.forEach(year=>{ %>
+              <% var collapse = year==date(Date.now(),'YYYY')?'collapse in':'collapse' %>
+
+              <section id="year_<%= year %>" style="overflow:hidden">
+                <h5><a style="color:#34495e" data-toggle="collapse" href="#archive_<%= year %>" aria-expanded="false" aria-controls="<%= year %>"><%= year %></a></h5>
+                <div id="archive_<%= year %>" class="<%= collapse %>">
+                  <% site.posts.each(post=>{ %>
+                    <% if (post.date.year() == year) { %>
+                      <div class="arc-t">
+                        <div class="arc-tile">
+                          <small><a href="<%= url_for(post.path) %>" target="_blank"><%= post.title %></a></small>
+                          <br>
+                          <span class="arc-date"><%= date(post.date) %></span>
+                        </div>
+                      </div>
+                    <% } %>
+                  <% }) %>
+                </div>
+              </section>
+            <% }) %>
+
+                
+
+          </div>
+        </div>
+      </article>
+  </div>
+</div>

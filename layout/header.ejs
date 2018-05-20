@@ -1,0 +1,11 @@
+<% if(!is_post()) { %>
+<header>
+  <div class="container">
+    <a id="logo" href="<%= config.url %>">
+      <h1 style="color: #34495e;"><%= config.title %></h1>
+    </a>
+    <p class="description"><%= config.description %></p>
+    <hr>
+  </div>
+</header>
+<% } %>

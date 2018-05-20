@@ -1,0 +1,19 @@
+<head>
+    <meta charset="utf-8">
+    <!-- From © neoFelhz's Spectre GitHub: https://github.com/neoFelhz/hexo-theme-spectre/ -->
+    <!-- Meta & Title & Info -->
+    <%- partial('_partial/head/meta') %>
+
+    <!-- Import CSS -->
+    <%- css('https://cdn.bootcss.com/flat-ui/2.3.0/css/vendor/bootstrap/css/bootstrap.min.css') %>
+    <%- css('https://cdn.bootcss.com/flat-ui/2.3.0/css/flat-ui.min.css') %>
+    <%- css('/fonts/material-design-iconic-font.min.css') %>
+    <%- css('/css/mori.css') %>
+    <% if (is_post()) { %>
+        <%- css('/js/zoom-js/css/zoom.css') %>
+    <% } %>
+
+    <!-- RSS -->
+    <%- partial('_partial/head/rss') %>
+
+</head>
