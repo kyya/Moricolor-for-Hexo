@@ -42,6 +42,7 @@ body {
   font-weight: 300;
   transition: background-color .8s ease-in-out;
 }
+
 #footer {
   clear: both;
 }
@@ -178,6 +179,19 @@ article a {
     max-height: 400px;
   }
 }
+.post {
+  padding: 12px;
+}
+.post-headline {
+  font-size: 4rem;
+  line-height: 6rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.post-content {
+  margin-bottom: 2em;
+}
 .post-content > ul {
   padding: 0;
 }
@@ -257,13 +271,12 @@ article a {
   margin-left: -2px;
 }
 /* Table 样式来自于 Bootstrap */
-.post-content table {
+.post-content > table {
   font-size: 1.7rem;
   font-weight: 400;
   width: fit-content;
   width: -moz-fit-content;
   width: -webkit-fit-content;
-  max-width: 100%;
   background-color: rgba(238, 238, 238, 0.5);
   box-shadow: 1px 2px 3px rgba(221, 221, 221, 0.8);
   display: block;
@@ -272,19 +285,19 @@ article a {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.post-content table th,
-.post-content table td {
+.post-content > table th,
+.post-content > table td {
   padding: 1rem;
   vertical-align: top;
 }
-.post-content table td:nth-child(n+2),
-.post-content table th:nth-child(n+2){
+.post-content > table td:nth-child(n+2),
+.post-content > table th:nth-child(n+2){
   border-left: 1px solid #dee2e6;
 }
-.post-content table tbody tr {
+.post-content > table tbody tr {
   border-top: 1px solid #dee2e6;
 }
-.post-content table tr:hover {
+.post-content > table tr:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
 .post-content ul li{
@@ -330,7 +343,7 @@ a[target="_blank"] img {
 .post-content blockquote pre {
   background-color: inherit;
 }
-.post-content blockquote:before {
+.post-content blockquote::before {
   font-family: 'Material-Design-Iconic-Font';
   color: #009e7f;
   content: "\f1b2";
@@ -344,7 +357,7 @@ a[target="_blank"] img {
   line-height: .1em;
 }
 
-.post-content blockquote:after {
+.post-content blockquote::after {
   font-family: 'Material-Design-Iconic-Font';
   color: #009e7f;
   content: "\f1b2";
@@ -359,17 +372,94 @@ a[target="_blank"] img {
   font-size: 1.5rem;
   font-weight: 400;
 }
-.post-content pre[class*="language-"] {
+.post-content pre {
+  margin: 0;
+  overflow: auto;
+  border: 0;
+  background: inherit;
+  position: relative;
+}
+.post-content p > code {
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-family: Consolas, Monaco, Menlo, sans-serif;
+}
+.post-content figure {
+  overflow-x: auto;
+  margin-bottom: 1em;
+}
+.post-content figure,
+.post-content table {
+  max-width: 100%;
+}
+.post-content figure.highlight {
+  padding-bottom: 10px;
+}
+.post-content figure.highlight table {
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(238, 238, 238, 0.5);
+  box-shadow: 1px 2px 3px rgba(221, 221, 221, 0.8);
+  border-radius: 5px;
+}
+.post-content figure.highlight table::after {
+  height: 2em;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 2px 7px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #b1b1b1;
+  background: rgba(224, 224, 224, 0.5);
+  content: 'Code';
+}
+.post-content figure.highlight .gutter pre {
+  color: #cacaca;
+  text-align: right;
+}
+.post-content figure.highlight .gutter pre,
+.post-content figure.highlight .code pre {
+  padding-top: 2em;
+  font-size: 1.4rem;
+  background-color: inherit;
+}
+.post-content figure.highlight .code .hljs {
+  padding: 0;
+  background-color: inherit;
+}
+.post-content figure.highlight .code pre {
   width: fit-content;
   width: -moz-fit-content;
   width: -webkit-fit-content;
   max-width: 100%;
-  font-size: 1.4rem;
   border: 0;
-  background-color: rgba(248, 248, 248, .5);
   border-radius: 2px;
   overflow-x: auto;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.125);
+}
+.post-content figure.highlight.c table::after {
+  content: 'C';
+}
+.post-content figure.highlight.cpp table::after {
+  content: 'CPP';
+}
+.post-content figure.highlight.diff table::after {
+  content: 'Diff';
+}
+.post-content figure.highlight.css table::after {
+  content: 'CSS';
+}
+.post-content figure.highlight.bash table::after {
+  content: 'Bash';
+}
+.post-content figure.highlight.java table::after {
+  content: 'Java';
+}
+.post-content figure.highlight.javascript table::after {
+  content: 'JavaScript';
 }
 .post-content p > img {
   box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.1);
@@ -390,9 +480,9 @@ a[target="_blank"] img {
   font-size: 1.5rem;
   font-weight: 400;
   display: block;
-  margin: 0 0 10px;
+  margin: 15px 0 10px;
   padding: 0 10px;
-  
+  border-radius: 2px;
 }
 .description p {
   font-size: 1.5rem;

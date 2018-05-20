@@ -1,7 +1,7 @@
 <div id="main" class="container">
   <div id="main-post" style="display: none;">
     <article id="post" class="post" style="padding-top: 20px;">
-        <h2 itemprop="name headline" style="font-weight: normal;"><%=page.title%></h2>
+        <h2 class="post-headline" title="<%= page.title %>"><%= page.title %></h2>
         <div class="text-right">
           <div class="text-bar">
               <a href="/" class="fui-home"></a>
@@ -78,6 +78,9 @@
 </div>
 <!-- Zoom.js 用于图片缩放 -->
 <script src="/js/zoom-js/js/zoom.js"></script>
+<!-- Highlight.js 用于代码高亮 -->
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 
 <script>
   (function(){
