@@ -382,7 +382,7 @@ a[target="_blank"] img {
   background: inherit;
   position: relative;
 }
-.post-content p code {
+.post-content :not(pre) code {
   padding: 3px 5px;
   border-radius: 4px;
   font-family: Consolas, Monaco, Menlo, sans-serif;
