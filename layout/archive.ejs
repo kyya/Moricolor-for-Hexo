@@ -27,7 +27,7 @@
               <section id="year_<%= year %>" style="overflow:hidden">
                 <h5><a style="color:#34495e" data-toggle="collapse" href="#archive_<%= year %>" aria-expanded="false" aria-controls="<%= year %>"><%= year %></a></h5>
                 <div id="archive_<%= year %>" class="<%= collapse %>">
-                  <% site.posts.each(post=>{ %>
+                  <% site.posts.sort('date', -1).each(post=>{ %>
                     <% if (post.date.year() == year) { %>
                       <div class="arc-t">
                         <div class="arc-tile">
