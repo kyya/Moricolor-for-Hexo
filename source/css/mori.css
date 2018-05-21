@@ -28,6 +28,8 @@ ruby > rt {
   font-style: italic;
   color: #6a8998;
   margin-right: 2px;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 html {
@@ -413,6 +415,10 @@ a[target="_blank"] img {
   position: relative;
   overflow: hidden;
   text-overflow: hidden;
+}
+.post-content figure.highlight pre {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 .post-content figure.highlight table::after {
   font-size: 1.2rem;
