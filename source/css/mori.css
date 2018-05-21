@@ -379,29 +379,33 @@ a[target="_blank"] img {
   background: inherit;
   position: relative;
 }
-.post-content p > code {
+.post-content p code {
   padding: 3px 5px;
   border-radius: 4px;
   font-family: Consolas, Monaco, Menlo, sans-serif;
+}
+/* 重写代码块开始 */
+.post-content figure,
+.post-content table {
+  max-width: 100%;
 }
 .post-content figure {
   overflow-x: auto;
   margin-bottom: 1em;
 }
-.post-content figure,
-.post-content table {
-  max-width: 100%;
-}
 .post-content figure.highlight {
-  padding-bottom: 10px;
-}
-.post-content figure.highlight table {
-  margin: 0;
-  position: relative;
-  overflow: hidden;
+  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  padding-bottom: 0;
   background-color: rgba(238, 238, 238, 0.5);
   box-shadow: 1px 2px 3px rgba(221, 221, 221, 0.8);
   border-radius: 5px;
+}
+.post-content figure.highlight table {
+  padding: 0;
+  margin: 0;
+  position: relative;
 }
 .post-content figure.highlight table::after {
   height: 2em;
@@ -410,36 +414,29 @@ a[target="_blank"] img {
   top: 0;
   right: 0;
   left: 0;
-  padding: 2px 7px;
+  padding: 2px 8px;
   font-size: 1.2rem;
   font-weight: bold;
   color: #b1b1b1;
   background: rgba(224, 224, 224, 0.5);
   content: 'Code';
 }
-.post-content figure.highlight .gutter pre {
-  color: #cacaca;
-  text-align: right;
-}
-.post-content figure.highlight .gutter pre,
-.post-content figure.highlight .code pre {
+.post-content figure.highlight .gutter,
+.post-content figure.highlight .code {
   padding-top: 2em;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   background-color: inherit;
+}
+.post-content figure.highlight .gutter {
+  color: #cacaca;
+  width: 1.2rem;
+  text-align: right;
 }
 .post-content figure.highlight .code .hljs {
   padding: 0;
   background-color: inherit;
 }
-.post-content figure.highlight .code pre {
-  width: fit-content;
-  width: -moz-fit-content;
-  width: -webkit-fit-content;
-  max-width: 100%;
-  border: 0;
-  border-radius: 2px;
-  overflow-x: auto;
-}
+
 .post-content figure.highlight.c table::after {
   content: 'C';
 }
