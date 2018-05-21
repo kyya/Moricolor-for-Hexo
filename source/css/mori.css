@@ -313,6 +313,9 @@ a[target="_blank"],
 a[target="_blank"] img {
   cursor: alias;
 }
+.post-content ol {
+  padding-left: 1rem;
+}
 .post-content ol li {
   text-indent: 0;
   margin-left: 11px;
@@ -401,21 +404,25 @@ a[target="_blank"] img {
   background-color: rgba(238, 238, 238, 0.5);
   box-shadow: 1px 2px 3px rgba(221, 221, 221, 0.8);
   border-radius: 5px;
+  overflow: auto;
 }
 .post-content figure.highlight table {
   padding: 0;
   margin: 0;
+  width: auto;
   position: relative;
+  overflow: hidden;
+  text-overflow: hidden;
 }
 .post-content figure.highlight table::after {
+  font-size: 1.2rem;
   height: 2em;
-  border-radius: 5px 5px 0 0;
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  border-radius: 5px 5px 0 0;
   padding: 2px 8px;
-  font-size: 1.2rem;
   font-weight: bold;
   color: #b1b1b1;
   background: rgba(224, 224, 224, 0.5);
@@ -436,7 +443,6 @@ a[target="_blank"] img {
   padding: 0;
   background-color: inherit;
 }
-
 .post-content figure.highlight.c table::after {
   content: 'C';
 }
