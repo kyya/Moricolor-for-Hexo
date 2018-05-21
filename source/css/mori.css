@@ -470,11 +470,13 @@ a[target="_blank"] img {
 .post-content figure.highlight.javascript table::after {
   content: 'JavaScript';
 }
-.post-content p > img {
+.post-content img.github-emoji {
+  width: 2rem;
+  height: 2rem;
+}
+.post-content :not(img.github-emoji) {
   box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.1);
-  display: block;
   margin: 0 auto;
-  text-align: center;
   border-radius: 6px;
   width: auto;
   max-width: 100%;
