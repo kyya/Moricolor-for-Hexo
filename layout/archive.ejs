@@ -15,7 +15,8 @@
           </ul>
         </div>
         <!-- 文章归档 -->
-        <div clss="post-archive" itemprop="articleBody">
+        <h5 style="color:#34495e">Posts</h5>
+        <div class="post-archive">
           <div id="archives">
             <% var since = theme.footer.copyright_since %>
             <% var years = new Set() %>
@@ -25,7 +26,7 @@
               <% var collapse = year==date(Date.now(),'YYYY')?'collapse in':'collapse' %>
 
               <section id="year_<%= year %>" style="overflow:hidden">
-                <h5><a style="color:#34495e" data-toggle="collapse" href="#archive_<%= year %>" aria-expanded="false" aria-controls="<%= year %>"><%= year %></a></h5>
+                <h5><a title="Click me" style="color:#34495e" data-toggle="collapse" href="#archive_<%= year %>" aria-expanded="false" aria-controls="<%= year %>"><%= year %></a></h5>
                 <div id="archive_<%= year %>" class="<%= collapse %>">
                   <% site.posts.sort('date', -1).each(post=>{ %>
                     <% if (post.date.year() == year) { %>
@@ -41,9 +42,6 @@
                 </div>
               </section>
             <% }) %>
-
-                
-
           </div>
         </div>
       </article>
