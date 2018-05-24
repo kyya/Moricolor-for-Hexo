@@ -5,14 +5,12 @@ html.han-la hanla:after {
   font-family: Arial;
   font-size: 0.89em;
 }
-
-html.han-la code hanla,
 html.han-la pre hanla,
 html.han-la kbd hanla,
+html.han-la code hanla,
 html.han-la samp hanla {
   display: none;
 }
-
 html.han-la ol > hanla,
 html.han-la ul > hanla {
   display: none;
@@ -31,7 +29,6 @@ ruby > rt {
   font-weight: 400;
   font-size: 1rem;
 }
-
 html {
   font-size: 11px;
 }
@@ -39,38 +36,52 @@ html {
 body {
   font-size: 1.7rem;
   color: #606975;
-  font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
   font-weight: 300;
   transition: background-color .8s ease-in-out;
 }
-
-#footer {
-  clear: both;
-}
 /* 灰度背景样式来自于 https://imjad.cn/ */
-div#main::after {
+main::after {
   background-image: url(/img/desktop/kyoko.png);
 }
-div#main::after {
+main::after {
   content: "";
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0.025;
-  -webkit-filter: grayscale(100%);
-  -moz-filter: grayscale(100%);
-  -ms-filter: grayscale(100%);
-  -o-filter: grayscale(100%);
-  filter: grayscale(100%);
-  filter: gray;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
+  -webkit-filter: grayscale(100%);
+     -moz-filter: grayscale(100%);
+      -ms-filter: grayscale(100%);
+       -o-filter: grayscale(100%);
+          filter: grayscale(100%);
+          filter: gray;
 }
-h4, .h4 {
+footer {
+  clear: both;
+  background-color: transparent;
+  text-align: center;
+  padding-bottom: 9px;
+}
+/* The 'target="_blank"' link use alias cursor */
+a[target="_blank"],
+a[target="_blank"] img {
+  cursor: alias;
+}
+#main-posts a {
+  font-weight: 400;
+}
+#postnav {
+  text-align: center;
+  margin: 0 auto;
+}
+h4.index-topic {
   font-size: 2rem;
 }
 /* ellip */
@@ -79,26 +90,10 @@ h4, .h4 {
   white-space: nowrap;
   overflow: hidden;
 }
-article a {
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  html {
-    font-size: 10px;
-  }
-  .post h2 {
-    font-size: 3rem;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  div#main::after {
-    background-image: url(/img/mobile/haruka.png);
-  }
-  .post-content ul, .post-list, .tags-list {
-    margin-left: .7rem;
-    margin-right: .7rem;
-  }
+.bottom-tools {
+  margin-left: 10px;
+  margin-bottom: 15px;
+  padding-left: 40px;
 }
 /* PostTor CSS */
 .post-tor-content {
@@ -175,12 +170,7 @@ article a {
           transform: translateX(-50%);
   max-width: 100vw;
 }
-@media (min-width: 768px){
-  .cover-image {
-    height: 40vw;
-    max-height: 400px;
-  }
-}
+
 .post {
   padding: 12px;
 }
@@ -214,6 +204,10 @@ article a {
 .post-content p a[target="_blank"]::before {
   margin-left: .5rem;
 }
+.post-content a {
+  color: #16a085;
+  font-weight: 400;
+}
 .post-content a:hover{
   color: #bcaaa4;
 }
@@ -238,7 +232,8 @@ article a {
   font-size: 1.6em;
   margin-left: -1px;
 }
-.post-content h4 {
+.post-content h4,
+.post-content h5 {
   font-size: 1.1em;
   color:#546e7a;
   font-weight: 400;
@@ -246,24 +241,16 @@ article a {
   margin-bottom: 10px;
   margin-left: -.5em;
 }
-.post-content h4::before{
+.post-content h4::before {
   margin-right: 6px;
   content: "#"; 
-  color:#e8a6a6;
-}
-.post-content h5 {
-  color:#546e7a;
-  font-weight: normal;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: -2px;
-  font-size: 1.1em;
+  color: #16a085;
 }
 .post-content h5::before {
   color:#546e7a;
   font-family: 'Material-Design-Iconic-Font';
-  margin-right: 6px;
-  content: "\f184"; 
+  margin-right: 5px;
+  content: "\f184";
 }
 .post-content h6 {
   color:#78909c;
@@ -274,6 +261,8 @@ article a {
 }
 /* Table 样式来自于 Bootstrap */
 .post-content > table {
+  border-collapse: collapse;
+  border-spacing: 0;
   font-size: 1.7rem;
   font-weight: 400;
   width: fit-content;
@@ -284,12 +273,10 @@ article a {
   display: block;
   color: #999;
   margin-bottom: 1rem;
-  border-collapse: collapse;
-  border-spacing: 0;
 }
 .post-content > table th,
 .post-content > table td {
-  padding: 1rem;
+  padding: .7rem;
   vertical-align: top;
 }
 .post-content > table td:nth-child(n+2),
@@ -306,14 +293,6 @@ article a {
   text-indent: 0;
   list-style: square;
   margin-left: 2rem;
-}
-.post-content a {
-  color: #16a085;
-}
-/*The 'target="_blank"' link use alias cursor*/
-a[target="_blank"],
-a[target="_blank"] img {
-  cursor: alias;
 }
 .post-content ol {
   padding-left: 1rem;
@@ -372,7 +351,6 @@ a[target="_blank"] img {
   bottom: 0px;
   line-height: .1em;
 }
-
 .post-content blockquote strong {
   font-size: 1.5rem;
   font-weight: 400;
@@ -613,31 +591,6 @@ a[target="_blank"] img {
   color: #5f5f5f;
   font-size: 12px;
   position: relative;
-}
-.bottomtool {
-  margin:10px;
-}
-@media (max-width: 992px){
-  .arc-t {
-    width:50%;
-  }
-  .post-tor-content {
-    display: none;
-  }
-}
-@media (max-width: 768px){
-  .arc-t {
-    width:100%;
-  }
-  .post-tor-content{
-    display: none;
-  }
-  #bottomtools ul{
-    padding: 2px;
-  }
-  .comment_reply {
-    display: block !important;
-  }
 }
 .tarc-t {
   width:90%;

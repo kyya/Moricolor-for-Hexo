@@ -1,84 +1,81 @@
-<div id="main" class="container">
-  <div id="main-index" style="display: none;">
-      <h4>記事</h4>
-      <% var post_count = 0 %>
-      <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
-        <% post_count++ %>
-        <% var collapse = post_count<=1?'collapse in':'collapse' %>
-        <article>
-          <dl class="dl-horizontal">
-            <dt>
-              <a style="color:#34495e;" title="Click" data-toggle="collapse" href="#<%= post_count %>" aria-expanded="false" aria-controls="<%= post.title%>">
-              <%- time_tag(post.date, 'MMM DD, YYYY') %>
-              </a>
-            </dt>
-            <dd><a itemtype="url" href="<%= url_for(post.path) %>"><%= post.title %></a></span></dd>
-            <dd class="<%= collapse %>" id="<%= post_count %>">
-              <!--<small><%# post.excerpt.replace(/<[^>]+>/g, ' ') %></small>-->
-              <small><%= strip_html(post.excerpt) %></small>
-            </dd>
-          </dl>
-        </article>
-      <% }) %>
-  <center>
-    <div id="postnav" style="display: none;">
-      <ul class="pager">
-        <% if (page.prev) { %>
-          <li class="previous"><a href="<%- url_for(page.prev_link) %>">PREV</a></li>
-        <% } else { %>
-          <li class="previous">
-            <a href="<%= url_for('/archives/') %>">ARCHIVE</a>
-          </li>
-        <% } %>
-      
-        <% if (page.next){ %>
-          <li class="next"><a href="<%- url_for(page.next_link) %>">NEXT</a></li>
-        <% } else { %>
-          <li class="next">
-            <a href="<%= url_for('/archives/') %>">ARCHIVE</a>
-          </li>
-        <% } %>
-      </ul>
-    </div>
-  </center>
+<main id="main" class="container">
+  <section id="main-posts" style="display: none;">
+    <h4 class="index-topic">記事</h4>
+    <% var post_count = 0 %>
+    <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+      <% post_count++ %>
+      <% var collapse = (post_count<=1?'collapse in':'collapse') %>
+      <article>
+        <dl class="dl-horizontal">
+          <dt>
+            <a style="color:#34495e;" title="Click me" data-toggle="collapse" href="#<%= post_count %>" aria-expanded="false" aria-controls="<%= post.title%>">
+            <%- time_tag(post.date, 'MMM DD, YYYY') %>
+            </a>
+          </dt>
+          <dd><a itemtype="url" href="<%= url_for(post.path) %>"><%= post.title %></a></dd>
+          <dd class="<%= collapse %>" id="<%= post_count %>">
+            <small><%= strip_html(post.excerpt) %></small>
+          </dd>
+        </dl>
+      </article>
+    <% }) %>
+  </section>
 
-  <div id="bottomtools" style="display: none;">
+  <div id="postnav" style="display: none;">
+    <ul class="pager">
+      <% if (page.prev) { %>
+        <li class="previous"><a href="<%- url_for(page.prev_link) %>">PREV</a></li>
+      <% } else { %>
+        <li class="previous">
+          <a href="<%= url_for('/archives/') %>">ARCHIVE</a>
+        </li>
+      <% } %>
+    
+      <% if (page.next){ %>
+        <li class="next"><a href="<%- url_for(page.next_link) %>">NEXT</a></li>
+      <% } else { %>
+        <li class="next">
+          <a href="<%= url_for('/archives/') %>">ARCHIVE</a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+
+  <section id="main-bottom" style="display: none;">
     <h6>(ฅ´ω`ฅ)</h6>
     <small>
-      <ul>
-        <section class="bottomtool">
-          <%# 一言 %>
-          <% if (theme.bottomtools.hitokoto) { %>
-            <div id="hitokoto" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">一言 Hitokoto</div>
-          <% } %>
+      <section class="bottom-tools">
+        <%# 一言 %>
+        <% if (theme.bottomtools.hitokoto) { %>
+          <div id="hitokoto" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">一言 Hitokoto</div>
+        <% } %>
 
-          <%# 导航 %>
-          <span style="padding-right: 1px;">Flags</span> · &nbsp;
-          <a style="color:#95A5A6;" href="<%= url_for('/archives/') %>"> &归档 </a>&nbsp; · &nbsp;
+        <%# 导航 %>
+        <span style="padding-right: 1px;">Flags</span> · &nbsp;
+        <a style="color:#95A5A6;" href="<%= url_for('/archives/') %>"> &归档 </a>&nbsp; · &nbsp;
 
+        <br>
+
+
+        <%# 分类 %>
+        <% if (theme.bottomtools.category) { %>
+          <span style="padding-right: 1px;">Category</span> · &nbsp;
+            <% site.categories.each(function(cat) { %>
+              <a style="color:#95A5A6;" href="<%= url_for(cat.path) %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
+            <% }) %>
           <br>
+        <% } %>
 
-
-          <%# 分类 %>
-          <% if (theme.bottomtools.category) { %>
-            <span style="padding-right: 1px;">Category</span> · &nbsp;
-              <% site.categories.each(function(cat) { %>
-                <a style="color:#95A5A6;" href="<%= url_for(cat.path) %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
-              <% }) %>
-            <br>
-          <% } %>
-
-          <%# 标签 %>
-          <% if (theme.bottomtools.tag) { %>
-            <span style="padding-right: 1px;">Tag</span> · &nbsp;
-              <% site.tags.each(function(tag) { %>
-                <a style="color:#95A5A6;" href="<%= url_for(tag.path) %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
-              <% }) %>
-            <br>
-          <% } %>
-
-        </section>
-      </ul>
+        <%# 标签 %>
+        <% if (theme.bottomtools.tag) { %>
+          <span style="padding-right: 1px;">Tag</span> · &nbsp;
+            <% site.tags.each(function(tag) { %>
+              <a style="color:#95A5A6;" href="<%= url_for(tag.path) %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
+            <% }) %>
+          <br>
+        <% } %>
+      </section>
     </small>
-  </div>
-</div>
+  </section>
+
+</main>
