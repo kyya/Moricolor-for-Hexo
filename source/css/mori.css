@@ -474,7 +474,8 @@ a[target="_blank"] img {
   width: 2rem;
   height: 2rem;
 }
-.post-content :not(img.github-emoji) {
+.post-content p > img:not(.github-emoji) {
+  display: block;
   box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   border-radius: 6px;
