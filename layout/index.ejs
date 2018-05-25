@@ -12,7 +12,7 @@
             <%- time_tag(post.date, 'MMM DD, YYYY') %>
             </a>
           </dt>
-          <dd><a itemtype="url" href="<%= url_for(post.path) %>"><%= post.title %></a></dd>
+          <dd><a href="<%= url_for(post.path) %>"><%= post.title %></a></dd>
           <dd class="<%= collapse %>" id="<%= post_count %>">
             <small><%= strip_html(post.excerpt) %></small>
           </dd>

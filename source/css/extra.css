@@ -1,0 +1,16 @@
+/* 超链接下划线 */
+#main-posts dd a {
+  position:relative;
+}
+#main-posts dd a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #1abc9c;
+  transition-delay: 0.1s;
+  transition: transform .2s linear;
+  transform: scaleX(0);
+}
