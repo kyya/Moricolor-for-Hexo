@@ -1,81 +1,86 @@
-<div id="main" class="container">
+<main class="container">
   <div id="main-post" style="display: none;">
-    <article id="post" class="post" style="padding-top: 20px;">
-        <h2 class="post-headline" title="<%= page.title %>"><%= page.title %></h2>
-        <div class="text-right">
-          <div class="text-bar">
-              <a href="/" class="fui-home"></a>
-              <a id="tor_show" href="javascript:void(0)" class="fui-list-bulleted"></a>
-              <a id="comment_go" href="#comments" class="fui-bubble"></a>
-              <a style="font-size: 30px;margin-left: 1px;">·</a>
-              <a href="https://twitter.com/intent/tweet?url=<%= url_for(page.path) %>" target="_blank" rel="nofollow" data-placement="bottom" data-toggle="tooltip" title="Twitter" class="fui-twitter"></a>
-          </div>
-          <div class="post-info">
-            <% page.categories.each(function(cat) { %>
-              <a href="<%= url_for(cat.path) %>"><%= cat.name %></a>
-            <% }) %>
-            <span class="post-info-tag">
-              <% page.tags.each(function(tag) { %>
-                <a href="<%= url_for(tag.path) %>"><%= tag.name %></a>
-              <% }) %>
-            </span>
-            <a><%- time_tag(page.date) %></a>
-          </div>
-        </div>
-        
-        <div class="post-content" itemprop="articleBody">
-            <%- page.content %>
-        </div>
-        <div class="post-copyright">
-          <div class="alert" role="alert">
-            本文作者：<a href="<%= theme.github %>" target="_blank"><%= config.author %></a><br>
-            本文采用 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow">知识共享署名 4.0</a> 协议进行许可。<br>
-            可自由转载、引用，但需署名作者且注明文章出处。
-          </div>
-        </div>
+    <article class="post">
+      <h2 class="post-headline" title="<%= page.title %>"><%= page.title %></h2>
+      <div class="post-text-bar" style="text-align: right">
+        <a href="/" class="fui-home"></a>
+        <a id="tor_show" href="javascript:void(0)" class="fui-list-bulleted"></a>
+        <a id="comment_go" href="#comments" class="fui-bubble"></a>
+        <a style="font-size: 30px;margin-left: 1px;">·</a>
+        <a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>" target="_blank" rel="nofollow" data-placement="bottom" data-toggle="tooltip" title="Twitter" class="fui-twitter"></a>
+      </div>
 
+      <div class="post-info">
+        <a><%- time_tag(page.date) %></a>
+        
+        <span class="post-info-tag">
+          <% page.tags.each(function(tag) { %>
+            <a href="<%= url_for(tag.path) %>"><%= tag.name %></a>
+          <% }) %>
+        </span>
+
+        <% page.categories.each(function(cat) { %>
+          <a href="<%= url_for(cat.path) %>"><%= cat.name %></a>
+        <% }) %>
+
+      </div>
+      <hr>
+
+      <div class="post-tor" style="display: none">
+        <div class="post-tor-content">
+          <%- post_tor(page.content) %>
+        </div>
+      </div>
+
+      <div class="post-content"><%- page.content %></div>
+
+      <div class="post-copyright">
+        <div class="alert" role="alert">
+          本文作者：<a href="<%= theme.github %>" target="_blank"><%= config.author %></a><br>
+          本文采用 <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/" rel="external nofollow">知识共享署名 4.0</a> 协议进行许可。<br>
+          可自由转载、引用，但需署名作者且注明文章出处。
+        </div>
+      </div>
     </article>
 
-    <center>
-      <div id="postnav" style="display: none;">
-      <ul class="pager">  
-          <li class="previous">
-              <a href="/">
-                  <span class="fui-home"></span>
-              </a>
-          </li>
-          <li class="next" id="outcomment">
-              <a href="javascript:void(0)">
-                  <span class="fui-chat"></span>
-              </a>
-          </li>
-          
-          <li class="previous">
-              <% if (page.prev) { %>
-                <a href="<%- url_for(page.prev.path) %>"><%= page.prev.title %></a>
-              <% } else { %>
-                <a href="#">没有了</a>
-              <% } %>
-          </li>
-          
-          <li class="next">
-            <% if (page.next) { %>
-              <a href="<%- url_for(page.next.path) %>"><%= page.next.title %></a>
+    <div class="post-nav" style="display: none;">
+    <ul class="pager">  
+        <li class="previous">
+            <a href="/">
+                <span class="fui-home"></span>
+            </a>
+        </li>
+        <li class="next" id="outcomment">
+            <a href="javascript:void(0)">
+                <span class="fui-chat"></span>
+            </a>
+        </li>
+        
+        <li class="previous">
+            <% if (page.prev) { %>
+              <a href="<%- url_for(page.prev.path) %>"><%= page.prev.title %></a>
             <% } else { %>
               <a href="#">没有了</a>
             <% } %>
-          </li>
-          
-      </ul>
-      </div>
-    </center>
+        </li>
+        
+        <li class="next">
+          <% if (page.next) { %>
+            <a href="<%- url_for(page.next.path) %>"><%= page.next.title %></a>
+          <% } else { %>
+            <a href="#">没有了</a>
+          <% } %>
+        </li>
+        
+    </ul>
+    </div>
     
     <div id="comments" style="display: none">
       <div id="disqus_thread"></div>
     </div>
   
   </div>
-</div>
+</main>
 <!-- Zoom.js 用于图片缩放 -->
 <script src="/js/zoom-js/js/zoom.js"></script>
 

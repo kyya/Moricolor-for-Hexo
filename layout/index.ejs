@@ -21,7 +21,7 @@
     <% }) %>
   </section>
 
-  <div id="postnav" style="display: none;">
+  <div class="post-nav" style="display: none;">
     <ul class="pager">
       <% if (page.prev) { %>
         <li class="previous"><a href="<%- url_for(page.prev_link) %>">PREV</a></li>
@@ -43,39 +43,34 @@
 
   <section id="main-bottom" style="display: none;">
     <h6>(ฅ´ω`ฅ)</h6>
-    <small>
-      <section class="bottom-tools">
-        <%# 一言 %>
+      <div class="bottom-tools small">
         <% if (theme.bottomtools.hitokoto) { %>
-          <div id="hitokoto" style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">一言 Hitokoto</div>
+          <div id="hitokoto">
+            <p>Hitokoto&nbsp; · &nbsp;&nbsp;Hitokoto Loading...</p>
+          </div>
         <% } %>
+        <p class="bottom-tool-flag">
+          <span style="padding-right: 1px;">Flags</span> · &nbsp;
+          <a href="<%= url_for('/archives/') %>"> &归档 </a>&nbsp; · &nbsp;
+        </p>
 
-        <%# 导航 %>
-        <span style="padding-right: 1px;">Flags</span> · &nbsp;
-        <a style="color:#95A5A6;" href="<%= url_for('/archives/') %>"> &归档 </a>&nbsp; · &nbsp;
-
-        <br>
-
-
-        <%# 分类 %>
         <% if (theme.bottomtools.category) { %>
-          <span style="padding-right: 1px;">Category</span> · &nbsp;
-            <% site.categories.each(function(cat) { %>
-              <a style="color:#95A5A6;" href="<%= url_for(cat.path) %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
-            <% }) %>
-          <br>
+          <p class="bottom-tool-category">
+            <span style="padding-right: 1px;">Category</span> · &nbsp;
+              <% site.categories.each(function(cat) { %>
+                <a href="<%= url_for(cat.path) %>"><%= cat.name.toUpperCase() %></a>&nbsp; · &nbsp;
+              <% }) %>
+          </p>
         <% } %>
 
-        <%# 标签 %>
         <% if (theme.bottomtools.tag) { %>
-          <span style="padding-right: 1px;">Tag</span> · &nbsp;
+          <p class="bottom-tool-tag">
+            <span style="padding-right: 1px;">Tag</span> · &nbsp;
             <% site.tags.each(function(tag) { %>
-              <a style="color:#95A5A6;" href="<%= url_for(tag.path) %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
+              <a href="<%= url_for(tag.path) %>"> &<%= tag.name.toUpperCase() %> </a>&nbsp; · &nbsp;
             <% }) %>
-          <br>
+          </p>
         <% } %>
-      </section>
-    </small>
+      </div>
   </section>
-
 </main>

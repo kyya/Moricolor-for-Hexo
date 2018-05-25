@@ -14,7 +14,7 @@
         .then(res => res.text())
         .then(hitokoto => {
           console.log(hitokoto)
-          document.querySelector('#hitokoto').innerHTML = `Hitokoto&nbsp; · &nbsp;&nbsp;${hitokoto}`
+          document.querySelector('#hitokoto').innerHTML = `<p>Hitokoto&nbsp; · &nbsp;&nbsp;${hitokoto}</p>`
         })
     })()
   </script>
@@ -35,7 +35,7 @@
     $("#main-archive").fadeIn(800);
     $("#main-tag").fadeIn(800);
     $("#main-post").fadeIn(500);
-    $("#postnav").fadeIn(800);
+    $(".post-nav").fadeIn(800);
     $("#main-page").fadeIn(500);
     $("#pagenav").fadeIn(800);
     $("#main-bottom").fadeIn(1200);
