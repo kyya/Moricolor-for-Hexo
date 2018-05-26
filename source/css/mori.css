@@ -34,10 +34,14 @@ html {
   font-size: 11px;
 }
 /* body 样式来自于 https://imjad.cn/ */
+/* 字体样式来自于 https://csspod.com/using-the-system-font-in-web-content/ */
 body {
   font-size: 1.7rem;
   color: #606975;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+  font-family:
+    system, -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Segoe UI", "Microsoft YaHei", "wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
   font-weight: 300;
   transition: background-color .8s ease-in-out;
@@ -415,7 +419,9 @@ h4.index-topic {
 .post-content :not(pre) code {
   padding: 3px 5px;
   border-radius: 4px;
-  font-family: Consolas, Monaco, Menlo, sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  font-family: Monaco, "Source Code Pro", Consolas, Menlo, monospace, sans-serif;
 }
 /* 重写代码块开始 */
 .post-content figure,
@@ -446,8 +452,9 @@ h4.index-topic {
 }
 .post-content figure.highlight pre {
   font-size: 1.5rem;
-  line-height: 2rem;
-  font-weight: 550;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace, Arial, sans-serif;
 }
 .post-content figure.highlight table::after {
   font-size: 1.2rem;
