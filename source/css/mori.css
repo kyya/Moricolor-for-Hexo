@@ -18,7 +18,7 @@ html.han-la ul > hanla {
 /* ruby 样式来自于 https://github.com/journey-ad/MDRuby-Typecho-Plugin/ */
 ruby {
   background-color: rgba(146, 185, 204, 0.2);
-  margin: 4px;
+  margin: 2px;
   padding: 0 2px;
   border-radius: 4px;
 }
@@ -32,6 +32,14 @@ ruby > rt {
 hr { border-top: 1px dashed #cfd8dc7a !important; }
 html {
   font-size: 11px;
+}
+::-moz-selection { 
+  color: white;
+  background: #1abc9c;
+}
+::selection { 
+  color: white;
+  background: #1abc9c;
 }
 /* body 样式来自于 https://imjad.cn/ */
 /* 字体样式来自于 https://csspod.com/using-the-system-font-in-web-content/ */
@@ -455,6 +463,19 @@ h4.index-topic {
   line-height: 2.5rem;
   letter-spacing: 0.1rem;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace, Arial, sans-serif;
+}
+/* 滚动条样式来自于 https://i.chainwon.com/ */
+.post-content figure.highlight::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.post-content figure.highlight::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: inherit;
+  transition-delay: .7s;
+}
+.post-content figure.highlight::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(224, 224, 224);
 }
 .post-content figure.highlight table::after {
   font-size: 1.2rem;
