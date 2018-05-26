@@ -7,7 +7,7 @@
           <ul class="tags-list">
           <% if (site.tags) { %>
             <% site.tags.each(function(tag) { %>
-              <a href="<%= url_for(tag.path) %>" rel="tag"><%= tag.name.toUpperCase() %></a>
+              <a href="<%= url_for(tag.path) %>"><%= tag.name.toUpperCase() %></a>
             <% }) %>
           <% } else {%>
             <h6>╮(๑•́ ₃•̀๑)╭什么也没有呢</h6>
@@ -26,7 +26,16 @@
               <% var collapse = year==date(Date.now(),'YYYY')?'collapse in':'collapse' %>
 
               <section id="year_<%= year %>" style="overflow:hidden">
-                <h5><a title="Click me" style="color:#34495e" data-toggle="collapse" href="#archive_<%= year %>" aria-expanded="false" aria-controls="<%= year %>"><%= year %></a></h5>
+                <h5>
+                  <a title="Click me" 
+                     style="color:#34495e"
+                     data-toggle="collapse"
+                     href="#archive_<%= year %>"
+                     aria-expanded="false"
+                     aria-controls="<%= year %>">
+                     <%= year %>
+                  </a>
+                </h5>
                 <div id="archive_<%= year %>" class="<%= collapse %>">
                   <% site.posts.sort('date', -1).each(post=>{ %>
                     <% if (post.date.year() == year) { %>

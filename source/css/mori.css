@@ -244,11 +244,28 @@ h4.index-topic {
 .post-text-bar a:focus {
   color: #34495e;
 }
+/* post-content */
 .post-content {
   margin-bottom: 2em;
 }
-.post-content > ul {
+.post-content > ul,
+.post-content > ol {
   padding: 0;
+}
+.post-content ul li {
+  text-indent: 0;
+  list-style: square;
+  margin-left: 2rem;
+}
+.post-content ol {
+  padding-left: 1rem;
+}
+.post-content ol li {
+  text-indent: 0;
+  margin-left: 11px;
+}
+.post-content ol li::before {
+  margin-right: 4px;
 }
 .post-content p,
 .post-content li {
@@ -304,18 +321,18 @@ h4.index-topic {
   margin-bottom: 10px;
   margin-left: -.5em;
 }
-.post-content h4::before {
+.post-content > h4::before {
   margin-right: 6px;
   content: "#"; 
   color: #16a085;
 }
-.post-content h5::before {
+.post-content > h5::before {
   color:#546e7a;
   font-family: 'Material-Design-Iconic-Font';
   margin-right: 5px;
   content: "\f184";
 }
-.post-content h6 {
+.post-content > h6 {
   color:#78909c;
   font-weight: normal;
   font-size: 1em;
@@ -351,21 +368,6 @@ h4.index-topic {
 }
 .post-content > table tr:hover {
   background-color: rgba(0, 0, 0, 0.05);
-}
-.post-content ul li{
-  text-indent: 0;
-  list-style: square;
-  margin-left: 2rem;
-}
-.post-content ol {
-  padding-left: 1rem;
-}
-.post-content ol li {
-  text-indent: 0;
-  margin-left: 11px;
-}
-.post-content ol li::before{
-  margin-right: 4px;
 }
 .post-content blockquote {
   position: relative;
@@ -539,6 +541,47 @@ h4.index-topic {
   width: auto;
   max-width: 100%;
   height: auto;
+}
+/* post-timeline from https://nexmoe.github.io/single-page/mixcm-avatar/ */
+.post-timeline {
+  overflow: hidden;
+  padding: 10px;
+  padding-left: 2rem;
+  margin: -10px;
+}
+.post-timeline ul,
+.post-timeline ol {
+  padding-left: 1.6rem;
+  margin: 0;
+}
+.post-timeline li {
+  list-style: disc!important;
+}
+.post-timeline > h4 {
+  position: relative;
+  margin: 25px 0;
+}
+.post-timeline > h4::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #1abc9c;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -4px;
+  margin-right: 11px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 5px #b0b0b0;
+}
+.post-timeline > h4::after {
+  content: "";
+  height: 100vh;
+  width: 2px;
+  background: #1abc9c;
+  position: absolute;
+  left: 0.67rem;
+  top: 1.7rem;
 }
 /* CopyRight 样式部分来自于 https://imjad.cn/ */
 .post-copyright {
