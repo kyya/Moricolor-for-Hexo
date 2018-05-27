@@ -472,7 +472,7 @@ h4.index-topic {
 .post-content figure.highlight pre {
   counter-reset: gutter;
   margin: 0;
-  padding: 2em 0 8px 0;
+  padding: 2em 0 0 0;
   font-size: 1.2rem;
   line-height: 0;
   border-radius: initial;
@@ -481,10 +481,11 @@ h4.index-topic {
 .post-content figure.highlight pre .line {
   display: block;
   height: 2.5rem;
-  width: inherit;
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.1rem;
+  width: fit-content;
+  min-width: 100%;
 }
 .post-content figure.highlight pre .line:hover {
   background-color: rgba(255, 255, 255, .125);
@@ -506,6 +507,7 @@ h4.index-topic {
 }
 .post-content figure.highlight pre .line::after {
   content: "";
+  display: inline-block;
   padding-right: 8px;
 }
 /* 滚动条样式来自于 https://i.chainwon.com/ */

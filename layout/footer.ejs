@@ -41,7 +41,17 @@
     $("#main-bottom").fadeIn(1200);
     $("#comments").fadeIn(1000);
     $("#footer").fadeIn(1200);
-   
+    
+    document.querySelectorAll('.post-content figure.highlight pre').forEach(e=>{
+      let lines = e.querySelectorAll('.line')
+      let widths = new Set()
+      lines.forEach(line=>widths.add(line.scrollWidth))
+      let max = Math.max(...widths)
+      lines.forEach(line=>{
+        line.style.width = max + 'px'
+      })
+
+    })
   });
   $("#comment_go").click(function(){
     $("#comments").fadeIn(1000);
