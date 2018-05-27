@@ -477,16 +477,14 @@ h4.index-topic {
   line-height: 0;
   border-radius: initial;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace, Arial, sans-serif;
-  
 }
 .post-content figure.highlight pre .line {
   display: block;
   height: 2.5rem;
+  width: inherit;
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.1rem;
-  -webkit-font-smooth: auto;
-  -moz-font-smooth: auto;
 }
 .post-content figure.highlight pre .line:hover {
   background-color: rgba(255, 255, 255, .125);
@@ -495,10 +493,13 @@ h4.index-topic {
   counter-increment: gutter;/* 增加计数器值 */
   content: counter(gutter); /* 显示计数器 */
   color: rgb(202, 202, 202);
-  min-width: 3.2rem;
+  /*min-width: 2.5em; /* 阈值 2.5em */
   display: inline-block;
   text-align: right;
   padding: 0 8px;
+}
+.post-content figure.highlight pre .line:nth-child(-n+9)::before {
+  content: " "counter(gutter);
 }
 .post-content figure.highlight pre .line:hover::before {
   color: #b1b1b1;
