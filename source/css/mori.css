@@ -443,6 +443,7 @@ h4.index-topic {
   margin-bottom: 1em;
 }
 .post-content figure.highlight {
+  position: relative;
   width: fit-content;
   width: -moz-fit-content;
   width: -webkit-fit-content;
@@ -452,34 +453,9 @@ h4.index-topic {
   border-radius: 5px;
   overflow: auto;
 }
-.post-content figure.highlight table {
-  padding: 0;
-  margin: 0;
-  width: auto;
-  position: relative;
-  overflow: hidden;
-  text-overflow: hidden;
-}
-.post-content figure.highlight pre {
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-  letter-spacing: 0.1rem;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace, Arial, sans-serif;
-}
-/* 滚动条样式来自于 https://i.chainwon.com/ */
-.post-content figure.highlight::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-.post-content figure.highlight::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background-color: inherit;
-  transition-delay: .7s;
-}
-.post-content figure.highlight::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(224, 224, 224);
-}
-.post-content figure.highlight table::after {
+.post-content figure.highlight::after {
+  font-family: Monaco, "Source Code Pro", Consolas, Menlo, monospace, sans-serif;
+  width: 100%;
   font-size: 1.2rem;
   height: 2em;
   position: absolute;
@@ -490,44 +466,59 @@ h4.index-topic {
   padding: 2px 8px;
   font-weight: bold;
   color: #b1b1b1;
-  background: rgba(224, 224, 224, 0.5);
-  content: 'Code';
+  background: #292d3e;
+  content: attr(data-language);
 }
-.post-content figure.highlight .gutter,
-.post-content figure.highlight .code {
-  padding-top: 2em;
+.post-content figure.highlight pre {
+  counter-reset: gutter;
+  margin: 0;
+  padding: 2em 0 8px 0;
   font-size: 1.2rem;
-  background-color: inherit;
+  line-height: 0;
+  border-radius: initial;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace, Arial, sans-serif;
+  
 }
-.post-content figure.highlight .gutter {
-  color: #cacaca;
-  width: 1.2rem;
+.post-content figure.highlight pre .line {
+  display: block;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.1rem;
+  -webkit-font-smooth: auto;
+  -moz-font-smooth: auto;
+}
+.post-content figure.highlight pre .line:hover {
+  background-color: rgba(255, 255, 255, .125);
+}
+.post-content figure.highlight pre .line::before {
+  counter-increment: gutter;/* 增加计数器值 */
+  content: counter(gutter); /* 显示计数器 */
+  color: rgb(202, 202, 202);
+  min-width: 3.2rem;
+  display: inline-block;
   text-align: right;
+  padding: 0 8px;
 }
-.post-content figure.highlight .code .hljs {
-  padding: 0;
-  background-color: inherit;
+.post-content figure.highlight pre .line:hover::before {
+  color: #b1b1b1;
 }
-.post-content figure.highlight.c table::after {
-  content: 'C';
+.post-content figure.highlight pre .line::after {
+  content: "";
+  padding-right: 8px;
 }
-.post-content figure.highlight.cpp table::after {
-  content: 'CPP';
+/* 滚动条样式来自于 https://i.chainwon.com/ */
+.post-content figure.highlight pre::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-.post-content figure.highlight.diff table::after {
-  content: 'Diff';
+.post-content figure.highlight pre::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(105, 76, 164, 0.4);
+  transition: .7s linear
 }
-.post-content figure.highlight.css table::after {
-  content: 'CSS';
-}
-.post-content figure.highlight.bash table::after {
-  content: 'Bash';
-}
-.post-content figure.highlight.java table::after {
-  content: 'Java';
-}
-.post-content figure.highlight.javascript table::after {
-  content: 'JavaScript';
+.post-content figure.highlight pre::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(105, 76, 164, 0.8);
 }
 .post-content img.github-emoji {
   width: 2rem;
