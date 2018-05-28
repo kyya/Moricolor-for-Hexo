@@ -84,11 +84,6 @@
 <!-- Zoom.js 用于图片缩放 -->
 <script src="/js/zoom-js/js/zoom.js"></script>
 
-<script>
-  (function(){
-    document.querySelectorAll('.post-content p > img').forEach(e=>e.setAttribute('data-action', 'zoom'))
-  })()
-</script>
 <!-- Disqus 用于评论系统 -->
 <% if (theme.comment.use == 'disqus') { %>
   <script type="text/javascript">
@@ -105,3 +100,23 @@
     }
   </script>
 <% } %>
+
+<script type="text/javascript">
+  document.querySelectorAll('.post-content p > img').forEach(e=>e.setAttribute('data-action', 'zoom'))
+  // 锚点平滑滚动
+  // $('a[href*=#],area[href*=#]').click(function() {
+  //     $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'); //Opera BUG fixed
+  //     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname && location.search == this.search) {
+  //         var $target = $(this.hash);
+  //         $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+  //         if ($target.length) {
+  //             var targetOffset = $target.offset().top;
+  //             $('html,body').animate({
+  //                 scrollTop: targetOffset
+  //             },
+  //             1000);
+  //             return false;
+  //         }
+  //     }
+  // });
+</script>

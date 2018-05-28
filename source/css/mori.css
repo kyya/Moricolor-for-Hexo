@@ -494,7 +494,6 @@ h4.index-topic {
   counter-increment: gutter;/* 增加计数器值 */
   content: counter(gutter); /* 显示计数器 */
   color: rgb(202, 202, 202);
-  /*min-width: 2.5em; /* 阈值 2.5em */
   display: inline-block;
   text-align: right;
   padding: 0 8px;
@@ -507,7 +506,6 @@ h4.index-topic {
 }
 .post-content figure.highlight pre .line::after {
   content: "";
-  display: inline-block;
   padding-right: 8px;
 }
 /* 滚动条样式来自于 https://i.chainwon.com/ */
@@ -523,6 +521,28 @@ h4.index-topic {
 .post-content figure.highlight pre::-webkit-scrollbar-thumb:hover {
   background-color: rgba(105, 76, 164, 0.8);
 }
+.post-content figure.highlight .tools {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: right;
+  vertical-align: middle;
+  padding: 2px 8px;
+}
+.post-content figure.highlight .tools::after {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #b1b1b1;
+  font-family: 'Material-Design-Iconic-Font';
+  margin-right: 5px;
+  content: "\f237";
+}
+
 .post-content img.github-emoji {
   width: 2rem;
   height: 2rem;

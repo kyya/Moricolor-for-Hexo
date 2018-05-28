@@ -32,11 +32,11 @@ function formatLine(line, lang) {
 function MoriPlugin(data) {
     data.content = data.content.replace(regex, (origin, lang, code) => {
         const startTag = `<figure class="highlight code" data-language="${titlecase(lang)}"><pre class="language-${lang}">`
-        const endTag = `</pre></figure>`;
-        code = unescape(code);
+        const endTag = `</pre><div class="tools"></div></figure>`
+        code = unescape(code)
         code = code.trim().split("\n").map(e=>formatLine(e, lang)).join("\n")
         parsedCode = code
-        return startTag + parsedCode + endTag;
+        return startTag + parsedCode + endTag
       });
     return data;
 }

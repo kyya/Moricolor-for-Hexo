@@ -50,37 +50,20 @@
       lines.forEach(line=>{
         line.style.width = max + 'px'
       })
-
     })
-  });
+    document.querySelectorAll('.post-content figure.highlight .tools').forEach(e=>{
+      e.onclick = function() {
+        console.log(e.previousSibling.innerText.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, ''))
+      }
+    })
+
+  })
   $("#comment_go").click(function(){
     $("#comments").fadeIn(1000);
   });
 
   $('[data-toggle=tooltip]').tooltip();
-  
   $("#outcomment").click(function(){
     $("#comments").fadeIn(1000);
   });
 </script>
-
-<% if(is_post()) { %>
-<script>
-  // 锚点平滑滚动
-  $('a[href*=#],area[href*=#]').click(function() {
-      $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'); //Opera BUG fixed
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname && location.search == this.search) {
-          var $target = $(this.hash);
-          $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
-          if ($target.length) {
-              var targetOffset = $target.offset().top;
-              $('html,body').animate({
-                  scrollTop: targetOffset
-              },
-              1000);
-              return false;
-          }
-      }
-  });
-</script>
-<% } %>
