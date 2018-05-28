@@ -94,8 +94,9 @@ a[target="_blank"] img {
   text-align: center;
   margin: 0 auto;
 }
-h4.index-topic {
-  font-size: 2rem;
+.index-topic {
+  font-weight: 700;
+  color: #34495e;
 }
 /* ellip */
 .ellip {
@@ -243,6 +244,31 @@ h4.index-topic {
 .post-text-bar a:visited,
 .post-text-bar a:focus {
   color: #34495e;
+}
+/* page-content */
+.page-content a {
+  display: inline-block;
+  color: #b1b1b1;
+}
+.page-content .friend {
+  margin-bottom: .7rem;
+  margin-right: .3rem;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgba(238, 238, 238, 0.5);
+  transition-timing-function: ease-in;
+}
+.page-content .friend:hover {
+  box-shadow: 1px 2px 3px rgba(221, 221, 221, 0.8);
+}
+.page-content .friend .friend-avatar {
+  width: 42px;
+  height: 42px;
+  min-height: 42px;
+  border-radius: 50%;
+  font-size: 1rem;
+  overflow: hidden;
+  display: inline-block;
 }
 /* post-content */
 .post-content {
