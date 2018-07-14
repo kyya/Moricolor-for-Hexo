@@ -21,6 +21,8 @@ scripts:
 - /js/vendor/bootstrap.js
 - /js/flat-ui.min.js
 
+toc: true
+
 bottomtools:
   hitokoto: true
   category: false

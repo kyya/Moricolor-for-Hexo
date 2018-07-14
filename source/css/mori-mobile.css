@@ -1,8 +1,14 @@
+@media (max-width: 960px) {
+  .post-tor {
+    display: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 10px;
   }
-  .post h2 {
+  .post-headline {
     font-size: 3rem;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -14,6 +20,12 @@
   .post-content ul, .post-list, .tags-list {
     margin-left: .7rem;
     margin-right: .7rem;
+  }
+  .arc-t {
+    width:100%;
+  }
+  #bottomtools ul{
+    padding: 2px;
   }
 }
 
@@ -27,23 +39,5 @@
 @media (max-width: 992px) {
   .arc-t {
     width:50%;
-  }
-  .post-tor-content {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .arc-t {
-    width:100%;
-  }
-  .post-tor-content{
-    display: none;
-  }
-  #bottomtools ul{
-    padding: 2px;
-  }
-  .comment_reply {
-    display: block !important;
   }
 }

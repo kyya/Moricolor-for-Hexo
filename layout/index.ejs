@@ -2,7 +2,7 @@
   <section id="main-posts" style="display: none;">
     <h4 class="index-topic">記事</h4>
     <% var post_count = 0 %>
-    <% page.posts.sort('date', -1).limit(10).each(function(post) { %>
+    <% page.posts.sort('date', -1).each(function(post) { %>
       <% post_count++ %>
       <% var collapse = (post_count<=1?'collapse in':'collapse') %>
       <article>
