@@ -102,7 +102,8 @@
 <% } %>
 
 <script type="text/javascript">
-  document.querySelectorAll('.post-content p > img').forEach(e=>e.setAttribute('data-action', 'zoom'))
+  document.querySelectorAll('.post-content p > img').forEach(elem=>elem.setAttribute('data-action', 'zoom'))
+  document.querySelector('.post-content p > img:first-child').classList.add('post-banner')
   // 锚点平滑滚动
   // $('a[href*=#],area[href*=#]').click(function() {
   //     $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'); //Opera BUG fixed

@@ -6,9 +6,9 @@
 
 
 ## Credits
-+ [Moricolor-for-Typecho](https://github.com/txperl/Moricolor-for-Typecho)
++ [Moricolor-for-Typecho](https://github.com/txperl/Moricolor-for-Typecho/)
 + [Flat UI](http://www.bootcss.com/p/flat-ui/)
-
++ [LWL Hitokoto API](https://blog.lwl12.com/read/hitokoto-api.html)
 ### Trii Hsia
 > 本程序源代码可任意修改并任意使用，但禁止商业化用途。一旦使用，任何不可知事件都与原作者无关，原作者不承担任何后果。
 > 如果您喜欢，希望可以在页面某处保留原作者 Trii Hsia 版权信息。

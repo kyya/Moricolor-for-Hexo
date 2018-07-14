@@ -60,9 +60,10 @@ main::after {
 }
 main::after {
   content: "";
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.025;
+  opacity: 0.025;/* 初始值 0.025 */
   position: fixed;
   top: 0;
   left: 0;
@@ -568,19 +569,28 @@ a[target="_blank"] img {
   margin-right: 5px;
   content: "\f237";
 }
-
 .post-content img.github-emoji {
   width: 2rem;
   height: 2rem;
 }
-.post-content p > img:not(.github-emoji) {
+.post-banner {
   display: block;
+  position: relative;
   box-shadow: 0 2px 15px 1px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   border-radius: 6px;
-  width: auto;
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
+  min-height: 50px;
+  transition: all .6s;
+}
+.post-banner:hover {
+  transform: scale(1.03);
+  animation-timing-function: ease-in-out;
+  animation-name: breathe;
+  animation-duration: 2700ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 /* post-timeline from https://nexmoe.github.io/single-page/mixcm-avatar/ */
 .post-timeline {
