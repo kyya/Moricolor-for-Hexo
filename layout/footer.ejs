@@ -30,32 +30,31 @@
 <script src="/js/text-autospace.min.js"></script>
 
 <script type="text/javascript">
-  $(document).ready(function() {
-    $("#main-posts").fadeIn(800);
-    $("#main-archive").fadeIn(800);
-    $("#main-tag").fadeIn(800);
-    $("#main-post").fadeIn(500);
-    $(".post-nav").fadeIn(800);
-    $("#main-page").fadeIn(500);
-    $("#pagenav").fadeIn(800);
-    $("#main-bottom").fadeIn(1200);
-    $("#comments").fadeIn(1000);
-    $("#footer").fadeIn(1200);
-    
-    document.querySelectorAll('.post-content figure.highlight pre').forEach(e=>{
-      let lines = e.querySelectorAll('.line')
-      let widths = new Set()
-      lines.forEach(line=>widths.add(line.scrollWidth))
-      let max = Math.max(...widths)
-      lines.forEach(line=>{
-        line.style.width = max + 'px'
-      })
-    })
-    document.querySelectorAll('.post-content figure.highlight .tools').forEach(e=>{
-      e.onclick = function() {
-        console.log(e.previousSibling.innerText.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, ''))
-      }
-    })
+document.addEventListener('DOMContentLoaded', function() {
+  $("#main-posts").fadeIn(800);
+  $("#main-archive").fadeIn(800);
+  $("#main-tag").fadeIn(800);
+  $("#main-post").fadeIn(500);
+  $(".post-nav").fadeIn(800);
+  $("#main-page").fadeIn(500);
+  $("#pagenav").fadeIn(800);
+  $("#main-bottom").fadeIn(1200);
+  $("#comments").fadeIn(1000);
+  $("#footer").fadeIn(1200);
+
+  document.querySelectorAll('.post-content figure.highlight pre').forEach(e=>{
+    let lines = e.querySelectorAll('.line')
+    let widths = new Set()
+    lines.forEach(line=>widths.add(line.scrollWidth))
+    let max = Math.max(...widths)
+    lines.forEach(line => { line.style.width = max + 'px' })
+  })
+  // 获取代码块内容
+  document.querySelectorAll('.post-content figure.highlight .tools').forEach(e=>{
+    e.onclick = function() {
+      console.log(e.previousSibling.innerText.replace(/(\n[\s\t]*\r*\n)/g, '\n').replace(/^[\n\r\n\t]*|[\n\r\n\t]*$/g, ''))
+    }
+  })
 
   })
   $("#comment_go").click(function(){

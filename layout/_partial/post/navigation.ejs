@@ -1,0 +1,29 @@
+<div class="post-nav" style="display: none;">
+  <ul class="pager"> 
+    <li class="previous">
+      <a href="/"><span class="fui-home"></span></a>
+    </li>
+
+    <li class="next" id="outcomment">
+      <a href="javascript:void(0)">
+        <span class="fui-chat"></span>
+      </a>
+    </li>
+
+    <li class="previous">
+    <% if (page.prev) { %>
+      <a href="<%- url_for(page.prev.path) %>"><%= page.prev.title %></a>
+    <% } else { %>
+      <a href="#">没有了</a>
+    <% } %>
+    </li>
+      
+    <li class="next">
+    <% if (page.next) { %>
+       <a href="<%- url_for(page.next.path) %>"><%= page.next.title %></a>
+    <% } else { %>
+      <a href="#">没有了</a>
+    <% } %>
+    </li>
+</ul>
+</div>
