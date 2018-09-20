@@ -81,9 +81,49 @@ footer {
   padding-bottom: 9px;
 }
 /* The 'target="_blank"' link use alias cursor */
+a[target="_blank"] {
+  position: relative;
+}
 a[target="_blank"],
 a[target="_blank"] img {
   cursor: alias;
+}
+a[target="_blank"]::before {
+  font-family: 'Flat-UI-Icons';
+  font-size: 12px;
+  font-weight: 600;
+  content: "\e63c  " attr(href);
+  position: absolute;
+  top: -50%;
+  padding: 0 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 800px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s, background-position 0.2s;
+  transition: opacity 0.3s, color 0.3s, transform 0.3s, background-position 0.2s;
+  transition-delay: 0s, 0s, 0s, 0s;
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  margin: 0;
+  background-color: transparent;
+  line-height: 2em;
+  color: transparent;
+  pointer-events: none;
+  text-shadow: none;
+}
+a[target="_blank"]:hover::before {
+  color: #404d5b;
+  background-color: #f7f7f5;
+  border: solid 1px;
+  border-color: #e2e2e2;
+  -webkit-transition-delay: 0s, 0s, 0s, 0.1s;
+  transition-delay: 0s, 0s, 0s, 0.1s;
+  -webkit-transform: scale(1) translateY(-75%);
+  transform: scale(1) translateY(-75%);
+  pointer-events: auto;
 }
 .post-nav {
   text-align: center;
@@ -284,6 +324,9 @@ a[target="_blank"] img {
 }
 .post-content img {
   max-width: 100%;
+  box-shadow: 2px 2px 5px #e0e0e0;
+  margin: 2rem 0;
+  border-radius: 5px;
 }
 .post-content > ul,
 .post-content > ol {
@@ -308,18 +351,8 @@ a[target="_blank"] img {
 .post-content li {
   font-size: 1.7rem;
   letter-spacing: .6px;
+  word-break: break-all;
   text-align: justify;
-}
-.post-content p a[target="_blank"]::before,
-.post-content li a[target="_blank"]::before {
-  font-family: 'Flat-UI-Icons';
-  font-size: 1.5rem;
-  color: #95A5A6;
-  margin-right: .5rem;
-  content: "\e63c";
-}
-.post-content p a[target="_blank"]::before {
-  margin-left: .5rem;
 }
 .post-content a {
   color: #16a085;
